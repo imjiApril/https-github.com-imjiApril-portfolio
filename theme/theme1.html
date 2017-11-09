@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Theme Simply Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    .bg-1 {
+      background-color: rgb(10, 105, 36);
+      color: #fff;
+    }
+
+    .bg-2 {
+      background-color: rgb(57, 73, 98);
+      color: #fff;
+    }
+
+    .container-fluid {
+      padding: 80px 0;
+    }
+
+    .panel-body {
+      padding: 0px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .panel-body img {
+      transition: 1s;
+    }
+
+    .panel-body:hover img{
+      transform: scale(1.3);
+    }
+
+    /*.panel-body img:hover{
+    transform: scale(1.3);
+  }*/
+
+  .panel-body .box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    transition: 1s;
+    opacity: 0;
+  }
+  .panel-body:hover .box{
+    visibility: visible;
+    opacity: 1;
+  }
+    .panel-body .box .glyphicon-search{
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 3em;
+    }
+    .panel-body .box .glyphicon-search:focus,
+    .panel-body .box .glyphicon-search:hover{
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NOTE: 네비 바 -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#">Me</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">WHO</a></li>
+          <li><a href="#">WHAT</a></li>
+          <li><a href="#">WHERE</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid text-center bg-1">
+    <h3>Who Am I?</h3>
+    <img src="../imgs/img1.jpg" alt="img" class="img-circle img-responsive center-block">
+    <h3>I'm adventurer</h3>
+  </div>
+
+  <div class="container-fluid text-center">
+    <h3>what am i?</h3>
+    <p>Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci repudiandae magnam cumque tempora unde ad eum neque consectetur et incidunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates voluptatem a maiores
+      optio omnis, dolores obcaecati eius mollitia accusamus nulla tenetur dolore ex provident, rem laboriosam numquam ut recusandae sequi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum hic eligendi illo consectetur, eum ratione officiis
+      nulla impedit dignissimos quasi.</p>
+  </div>
+
+  <div class="container-fluid text-center bg-2">
+    <h3>what am i?</h3>
+    <p>Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci repudiandae magnam cumque tempora unde ad eum neque consectetur et incidunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus nihil pariatur aut
+      eos totam ullam enim est atque, commodi nam quibusdam qui possimus saepe iste amet officiis asperiores tenetur sapiente harum fuga! Facilis sequi dolorem dolores? Tenetur accusantium, dolor perspiciatis sequi repellendus quam? Veritatis molestias
+      nam, facere iste! Corporis, molestias?</p>
+    <a href="" class="btn btn-primary">search <span class="glyphicon glyphicon-search"></span></a>
+    <button class="btn btn-default">Dtail</button>
+  </div>
+
+  <div class="container-fluid text-center">
+    <h3>Where to finde me?</h3>
+    <div>
+      <div class="col-xs-6 col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <p>Title</p>
+          </div>
+          <div class="panel-body">
+            <img src="../imgs/img2.jpg" alt="img" class="img-responsive">
+            <div class="box">
+              <a href="" class="glyphicon glyphicon-search">
+                <span class="sr-only">자세히보기</span> <!-- NOTE: 화면상에서는 안보이게 -->
+              </a>
+            </div>
+          </div>
+          <!-- <div class="panel-bottom">
+          text
+        </div> -->
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <p>Title</p>
+          </div>
+          <div class="panel-body">
+            <img src="../imgs/img2.jpg" alt="img" class="img-responsive">
+            <div class="box">
+              <a href="" class="glyphicon glyphicon-search">
+                <span class="sr-only">자세히보기</span> <!-- NOTE: 화면상에서는 안보이게 -->
+              </a>
+            </div>
+          </div>
+          <!-- <div class="panel-bottom">
+          text
+        </div> -->
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <p>Title</p>
+          </div>
+          <div class="panel-body">
+            <img src="../imgs/img2.jpg" alt="img" class="img-responsive">
+            <div class="box">
+              <a href="" class="glyphicon glyphicon-search">
+                <span class="sr-only">자세히보기</span> <!-- NOTE: 화면상에서는 안보이게 -->
+              </a>
+            </div>
+          </div>
+          <!-- <div class="panel-bottom">
+          text
+        </div> -->
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <p>Title</p>
+          </div>
+          <div class="panel-body">
+            <img src="../imgs/img2.jpg" alt="img" class="img-responsive">
+            <div class="box">
+              <a href="" class="glyphicon glyphicon-search">
+                <span class="sr-only">자세히보기</span> <!-- NOTE: 화면상에서는 안보이게 -->
+              </a>
+            </div>
+          </div>
+          <!-- <div class="panel-bottom">
+          text
+        </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTE: gallery end -->
+
+  <div class="container-fluid text-center bg-2">
+    <p>copyright&copy; 2017 Bootstrap Theme. All rights reserved.</p>
+  </div>
+</body>
+
+</html>

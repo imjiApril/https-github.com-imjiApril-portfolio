@@ -6,8 +6,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://daneden.github.io/animate.css/animate.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../prefixfree.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?keyAIzaSyBuhJF66_LzrOcwrXvXEwfGbjF2D_dlTG8&callback=initMap"></script>
   <style>
     /*공통소스*/
 
@@ -60,11 +64,27 @@
    padding: 30px 0;
  }
 
+ /*슬라이드 애니메이션 효과 추가*/
+ .slideanim{visibility: hidden;}
+ .slide{animation: slide 1s;visibility: visible;}/*1초 동안 애니메이션 효과 발생*/
+/*애니메이션의 이름*/
+ @keyframes slide {
+   0%{
+     opacity: 0;
+     transform: translateY(70%);/*월래위치긔 70%아래로 이동*/
+   }
+   100%{
+     opacity: 1;
+     transform: translateY(0%);/*원래위치로 이동*/
+   }
+ }
+
     /*커스터마이징*/
 
     .jumbotron {
       background-color: rgb(160, 233, 2);
       color: #fff;
+      padding: 100px 0;
     }
 
     .container-fluid {
@@ -96,6 +116,22 @@
   </style>
 
   <script type="text/javascript">
+//document ready 전에 wow초기화
+  new WOW().init();
+
+//구글 지도 초기화
+  function initMap() {
+          var uluru = {lat: 59.327429, lng:  18.054796};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+        }
+
 //document ready
   $(function(){
     //네비게이션 메뉴, 위로가기 링크 클릭시
@@ -114,6 +150,27 @@
         })
       }
     })
+
+    //스크롤 이벤트 발생시 해당 요소에 slide 클래스 추가하기
+    $(window).scroll(function(){
+      //slideanim 클래스가 적용된 요소에 순차적으로 접근
+      $('.slideanim').each(function(){
+        //slideanim 클래스가 적용된 요소의 위치값
+        var pos=$(this).offset().top;
+        //윈도우 스크롤시 위치값
+        var winTop = $(window).scrollTop();
+        //스크롤의 위치값보다 해당요소의 위치값이 작아지면
+        if(pos<winTop+500){
+          //해당 요소에 slide 클래스 추가
+          $(this).addClass('slide');
+        }
+      })
+    }).scroll(); //스크롤을 하지 않았을때 한 번은 실행이 된다.
+
+    //애니메시연 처리는 플러그인을 검색 후 활용해도 됨
+    //wow.js => www.codepen.io 사이트에서 검색
+
+
   })
 
   </script>
@@ -163,14 +220,14 @@
   <!-- about-->
 
 
-  <div class="container-fluid" id="about">
+  <div class="container-fluid slideanim" id="about">
     <h2>About</h2>
     <h4>Lorem ipsum dolor sit.</h4>
     <p>Lorem ipsum dolor sit amet.</p>
     <button class="btn btn-danger btn-lg">Get in Touch</button>
   </div>
 
-  <div class="container-fluid bg-grey">
+  <div class="container-fluid bg-grey slideanim">
     <div class="col-md-6">
       <span class="glyphicon glyphicon-book icon"></span>
     </div>
@@ -189,7 +246,7 @@
     <h4>What we offer</h4>
     <div class="row">
       <div class="col-sm-6 col-md-4">
-        <sapn class="glyphicon glyphicon-music"></sapn>
+        <sapn class="glyphicon glyphicon-music wow wobble"  data-wow-delay=".25s" data-wow-duration="5s"></sapn>
         <h4>Power</h4>
         <p>Lorem ipsum dolor sit amet.</p>
       </div>
@@ -301,18 +358,10 @@
   </a>
 </div>
 
-<!-- Add Google Maps -->
-<div id="googleMap" style="height:400px;width:100%;"></div>
-<script>
-function myMap() {
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
-var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-var marker = new google.maps.Marker({position:myCenter});
-marker.setMap(map);
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<!--구글 지도 넣기-->
+<div id="map" style="width:100%; height: 500px;">
+
+</div>
 
 <footer class="text-center bg-grey-dark">
   <a href="#myPage" title="go Top">

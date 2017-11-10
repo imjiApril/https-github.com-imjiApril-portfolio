@@ -20,7 +20,6 @@
 #sidenav .nav-pills > li > a > span{padding-left: 10px;}
 
 @media screen and (max-width: 767px){
-  #contents > .row{padding: 80px 10px 40px !important}
   #sidenav{height: 80px !important; box-shadow: none;}
   #sidenav > div{
     background-color: #fff;
@@ -39,7 +38,9 @@
 #contents{}
 #contents > .row{padding: 80px 30px 40px;}
 #contents > .row:nth-child(1){padding: 0;}
-
+@media screen and (max-width: 767px){
+  #contents > .row{padding: 80px 10px 40px}
+}
 /*캐러셀*/
 .carousel-inner,
 .carousel-inner > .item{height: 100%;}

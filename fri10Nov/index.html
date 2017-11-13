@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/common.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src="js/prefixfree.min.js"></script>
+  <!-- <script src="js/prefixfree.min.js"></script> -->
   <script src="js/common.js"></script>
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -19,7 +19,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body data-spy="scroll" data-target="#sidenav">
   <!-- 상단영역 -->
   <div class="container-fluid">
     <section class="row content">
@@ -142,19 +142,19 @@
 
         <!--갤러리-->
        <div class="row">
-         <div class="col-sm-6 colmd-5 col-lg-3">
+         <div class="col-sm-6 col-md-4 col-lg-3 item" data-category="Responsive">
            <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  <span>사이트1</span>
+                  <span class="title">반응형</span>
                   <span class="label label-primary pull-right">R</span>
                 </h3>
 
               </div>
               <div class="panel-body">
-                <img src="images/main.png" class="img-responsive" alt="">
+                <img src="images/mywork.png" class="img-responsive" alt="">
                 <div class="box">
-                  <a href="" class="glyphicon glyphicon-search">
+                  <a href="" class="glyphicon glyphicon-search" data-src="images/mywork_full.png">
                     <span class="sr-only">자세히보기</span>
                   </a>
                 </div>
@@ -165,27 +165,156 @@
                   <li>
                     <span class="label label-success">HTML5</span>
                     <div class="progress">
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40%" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50%" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </li>
                   <li>
                     <span class="label label-info">CSS3</span>
                     <div class="progress">
-                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40%" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
+                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60%" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </li>
                   <li>
                     <span class="label label-warning">Script</span>
                     <div class="progress">
-                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40%" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70%" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </li>
                 </ul>
               </div>
            </div>
          </div>
-       </div>
+         <!--col end-->
+         <div class="col-sm-6 col-md-4 col-lg-3 item "data-category="Mobile">
+           <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <span class="title">모바일</span>
+                  <span class="label label-success pull-right">M</span>
+                </h3>
 
+              </div>
+              <div class="panel-body">
+                <img src="images/mywork2.png" class="img-responsive" alt="">
+                <div class="box">
+                  <a href="" class="glyphicon glyphicon-search" data-src="images/mywork2_full.png">
+                    <span class="sr-only">자세히보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <!-- ul>li*3>span+div[class=progress] -->
+                <ul class="list-unstyled">
+                  <li>
+                    <span class="label label-success">HTML5</span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70%" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="label label-info">CSS3</span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="75%" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="label label-warning">Script</span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="100%" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+           </div>
+         </div>
+         <!--col-->
+         <div class="col-sm-6 col-md-4 col-lg-3 item" data-category="Responsive">
+           <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <span class="title">부트스트랩</span>
+                  <span class="label label-primary pull-right">R</span>
+                </h3>
+
+              </div>
+              <div class="panel-body">
+                <img src="images/mywork3.png" class="img-responsive" alt="">
+                <div class="box">
+                  <a href="" class="glyphicon glyphicon-search" data-src="images/mywork3_full.png">
+                    <span class="sr-only">자세히보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <!-- ul>li*3>span+div[class=progress] -->
+                <ul class="list-unstyled">
+                  <li>
+                    <span class="label label-success">HTML5</span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80%" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="label label-info">CSS3</span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="85%" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="label label-warning">Script</span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="87%" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+           </div>
+         </div>
+         <!--col-->
+         <div class="col-sm-6 col-md-4 col-lg-3 item" data-category="UI/UX">
+           <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <span class="title">UI 컴포넌트</span>
+                  <span class="label label-danger pull-right">U</span>
+                </h3>
+
+              </div>
+              <div class="panel-body">
+                <img src="images/mywork4.png" class="img-responsive" alt="">
+                <div class="box">
+                  <a href="" class="glyphicon glyphicon-search" data-src="images/mywork4_full.png">
+                    <span class="sr-only">자세히보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <!-- ul>li*3>span+div[class=progress] -->
+                <ul class="list-unstyled">
+                  <li>
+                    <span class="label label-success">HTML5</span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="80%" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="label label-info">CSS3</span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="90%" aria-valuemin="0" aria-valuemax="100"onloadedmetadata=""></div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="label label-warning">Script</span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="95%" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+           </div>
+         </div>
+         <!--col end-->
+       </div>
       </div>
         <!--works end-->
 
@@ -227,6 +356,31 @@
       copyright&copy; 2017 HANNAZ All rights reserved.
     </div>
   </footer>
+
+  <!-- 모달창 -->
+  <div class="modal fade" id="modal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="" class="img-responsive">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+  <!-- 모달끝 -->
+
+  <!--위로가기-->
+  <a href="#sidenav" title="go to Top" class="goTop btn btn-info">
+    <span class="glyphicon glyphicon-menu-up"></span>
+  </a>
+
 </body>
 
 </html>

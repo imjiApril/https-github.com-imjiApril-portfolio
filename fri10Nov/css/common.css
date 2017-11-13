@@ -39,7 +39,7 @@
 #contents > .row{padding: 80px 30px 40px;}
 #contents > .row:nth-child(1){padding: 0;}
 @media screen and (max-width: 767px){
-  #contents > .row{padding: 80px 10px 40px}
+  #contents > .row{padding: 80px 15px 40px}
 }
 /*캐러셀*/
 .carousel-inner,
@@ -131,7 +131,12 @@
 #works .panel-footer .progress{
   margin: 0 0 10px 60px; background-color: #ffffff;
 }
-#works .panel-footer .progress .progressbar {}
+#works .panel-footer .progress .progress-bar {width: 0%; transition: none;}
+
+/*모달*/
+  /*가운데 정렬, 스크롤바*/
+  #modal .modal-body{text-align: center; overflow-y: auto;}
+  #modal img{display: inline;}
 
 /* 하단 */
 footer{color:#d2d2d2;}
@@ -143,4 +148,18 @@ footer ul li span{padding-right: 5px;}
 @media screen and (max-width:767px) {
   footer{text-align: center;}
   footer hr{width: 60%;}
+}
+/*위로가기*/
+.goTop{
+    font-size: 20px;
+    position: fixed;
+    right: 10px;
+    bottom: 60px;
+    transition: 1s;
+    visibility: hidden;
+    opacity: 0;
+}
+.goTop.on{
+  visibility: visible;
+  opacity: 1;
 }

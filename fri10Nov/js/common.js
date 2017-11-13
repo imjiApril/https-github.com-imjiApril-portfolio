@@ -79,11 +79,16 @@ var category = $(this).text();
 console.log(category);
 // var Dcategory = $('#works .item').each(function(){
 //   $(this).attr('data-category');
-// });
+//  });
 // console.log(Dcategory);
- 
 
+$('#works .item').each(function(){
+  var i = $(this).attr('data-category');
 
+  if(i != category){
+    $(this).hide();
+  }
+});
   });
 
 

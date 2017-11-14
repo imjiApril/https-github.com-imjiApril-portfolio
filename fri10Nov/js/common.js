@@ -29,7 +29,7 @@ $(function(){
     }else{//재생
       $('#slideImg').carousel('cycle');
     }
-  })
+  });
 
   //profile 슬라이드 효과
   $(window).scroll(function(){
@@ -43,6 +43,6 @@ $(function(){
           $(this).addClass('slide-right');
         }
       }
-    })
-  })
-})
+    });
+  });
+});

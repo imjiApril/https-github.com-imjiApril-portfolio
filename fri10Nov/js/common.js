@@ -1,6 +1,20 @@
 
 //document ready
 $(function(){
+  //문서가 모두 로드되고 난 후 body내용 보임 처리
+  $(window).on('load',function(){
+    console.log('로딩완료!');
+    $('#loading-bg2').animate({
+      opacity:0
+    },1000,function(){
+      //로딩화면 투명처리완료되면
+      $(this).remove();//요소삭제
+      $('html, body').removeAttr('style');
+    });
+
+
+  });
+
   //네비게이션, 컨텐츠의 사이즈 체크
   $(window).resize(function(){
     resizing();
@@ -68,6 +82,8 @@ $(function(){
   })
 
   //카테고리 필터
+  var $item=$('#works .item');
+
   $('#works .nav a').on('click',function(event){
     event.preventDefault();
     //카테고리 메뉴 전체 초기화
@@ -75,22 +91,113 @@ $(function(){
     //선택한 메뉴 활성화
     $(this).parent().addClass('active');
 
-var category = $(this).text();
-console.log(category);
-// var Dcategory = $('#works .item').each(function(){
-//   $(this).attr('data-category');
-//  });
-// console.log(Dcategory);
+    //선택한 카테고리만 활성화 되도록 코드 작성
+    //아이템 초기화
+    $item.fadeOut(100,resizing);
+    //선택한 메뉴의 이름
+    var menu = $(this).text();
 
-$('#works .item').each(function(){
-  var i = $(this).attr('data-category');
+    if(menu=='All'){
+      $item.fadeIn(100,resizing);
+      //count 대신 아이템의 전체 수를 전달
+      fn_alertMessage($item.length);
+    }else{
+      var count = 0;//검색된 수
+      $item.each(function(index){
+        //각 아이템의 카테고리 값
+        var category = $(this).attr('data-category');
+        if(menu==category){
+          count++;
+          $item.eq(index).fadeIn(1000,resizing);
+        }
+      })
+      console.log('검색된 아이템수: ' + count);
+      fn_alertMessage(count);
+    }
+// var category = $(this).text();
+// console.log(category);
+// // var Dcategory = $('#works .item').each(function(){
+// //   $(this).attr('data-category');
+// //  });
+// // console.log(Dcategory);
+// $('#works .item').each(function(){
+//   var i = $(this).attr('data-category');
+//
+//   if(i != category){
+//     $(this).hide();
+//   }
+// });
 
-  if(i != category){
-    $(this).hide();
-  }
-});
   });
+  //카테고리 필터 끝
 
+//검색 필터
+$('.search-form button').on('click',function(){
+  //내기 검색할 단어를 영어면 대문자로 변경, 앞뒤에 공백 있다면 제거
+  var quicksearchVal=$('.quicksearch').val().toUpperCase().trim();
+//  console.log("검색할 단어:" + quicksearchVal);
+
+//아이템 초기화
+  $item.fadeOut(100,resizing);
+
+  if(quicksearchVal==''){//검색갑이 없을 경우(빈값)
+    $item.fadeIn(100,resizing);
+    fn_alertMessage($item.length);
+  }else{
+    //지역변수(해당 영역에서만 사용할 수 있는 변수)
+    var count = 0;
+    //아이템에 순차적으로 접근해서 처리
+    $item.each(function(index){
+      var search=$(this).text().toUpperCase().replace(/\s/g,'');
+    //  console.log(index + '검색대상 문자열: '+search);
+      var regex = new RegExp(quicksearchVal, 'g');
+      var list = search.match(regex);
+    //  console.log('매칭결과: '+list);
+
+      if(list != null){//검색된 결과가 있을 경우
+          //console.log(list.length);
+          // for(var i=0; i<list.length; i++){
+            if(quicksearchVal == list[0]){
+              console.log('찾는 단어: ' + quicksearchVal, '찾은 단어:' +list[0], '해당하는 아이템: ' +index);
+              //해당 아이템을 찾았을 경우
+              count++;
+              $item.eq(index).fadeIn(1000,resizing);
+              //break;
+            }
+          //}
+        }
+    })
+    //검색 결과를 알림창으로 알려주기
+    fn_alertMessage(count);
+  }
+//검색버튼을 누르면 스크롤 위치 이동
+// $(this).animate({scrollTop:$(#works).offset().top},1000)
+})
+
+  //검색 결과를 알림창으로 보여주기
+function fn_alertMessage(count){
+   var alertText;
+   if(count == 0){
+     alertText="선택하신 카테고리의 작업물이 없습니다."
+   }else{
+     alertText=count + "건이 검색되었습니다."
+   }
+   var alertMessage='<div class="alert-bg">'
+   +'<div class="alert alert-warning alert-dismissible" role="alert">'
+  +'<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
+  +'<span aria-hidden="true">&times;</span></button>'
+  +'<strong>'+alertText+'</strong>'
+  +'</div>'
+  +'</div>';
+
+   //알림 메시지창을 body태그에 붙여줌
+   $('body').append(alertMessage);
+   //알림 메시지창 닫을 때 백그라운드로 삭제 처리
+   $('.alert').on('closed.bs.alert',function(){
+     console.log('닫힘');
+     $('.alert-bg').remove();
+   })
+}
 
   //갤러리 팝업(모달)
 $('#works .item a').on('click',function(){

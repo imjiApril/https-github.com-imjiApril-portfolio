@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>position-라이언얼굴</title>
+    <style>
+      .face{
+        width:300px;
+        height:300px;
+        border-radius: 50%;
+        background: #ffab31;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        border: 3px solid #000;
+      }
+      .face ::after,
+      .face ::before{
+        display: inline-block;
+        content: "";
+      }
+      /*귀*/
+      .ears{
+        position: absolute;
+        width:100%;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        margin-bottom:100px;
+        width:300px;
+      }
+      .ears::before, .ears::after{
+        display: inline-block;
+        content: "";
+        width:80px;
+        height:80px;
+        border-radius: 50%;
+        background: #ffab31;
+        position: absolute;
+        border: 3px solid #000;
+        top:-160px;
+      }
+      .ears::before{
+        left:5%;
+      }
+      .ears::after{
+        right:5%;
+      }
+      /*눈*/
+      .eyes{
+        position: absolute;
+        width:100%;
+        top:40%;
+      }
+      .eyes .left, .eyes .right{
+        width:15px;
+        height:15px;
+        border-radius: 50%;
+        background: #000;
+        position: absolute;
+      }
+      .eyes .left{
+        left:25%;
+      }
+      .eyes .right{
+        right:25%;
+      }
+      .eyes .left::before,
+      .eyes .right::before{
+        position: absolute;
+        left:50%;
+        top:-20px;
+        transform: translateX(-50%);
+        width:60px;
+        height:10px;
+        background: #000;
+        border-radius: 5px;
+      }
+
+      /*코*/
+      .nose{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translateX(-50%);
+      }
+      .nose .center{
+        width:30px;
+        height:30px;
+        border-radius: 50%;
+        background: #000;
+      }
+      .nose::before, .nose::after{
+        position: absolute;
+        width:40px;
+        height:40px;
+        border-radius: 50%;
+        background: #fff;
+        top:10px;
+        z-index: -1;
+        border: 3px solid #000;
+      }
+      .nose::before{
+        left:-30px;
+      }
+      .nose::after{
+        right:-30px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="ears"></div>
+    <div class="face">
+      <div class="eyes">
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+      <div class="nose">
+        <div class="center"></div>
+      </div>
+    </div>
+  </body>
+</html>

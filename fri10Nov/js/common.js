@@ -78,11 +78,11 @@ $(function(){
           $(this).addClass('slide-right');
         }
       }
-<<<<<<< HEAD
-    });
-  });
-});
-=======
+// <<<<<<< HEAD
+//     });
+//   });
+// });
+// =======
     })
   })
 
@@ -275,4 +275,4 @@ $('#modal').on('hidden.bs.modal',function(){
 
 
 })
->>>>>>> 928c6fdf19dac21764d5821add81c8ad518304f8
+// >>>>>>> 928c6fdf19dac21764d5821add81c8ad518304f8
